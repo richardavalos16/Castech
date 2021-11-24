@@ -14,7 +14,15 @@
 <body>
 
     <header class = "titulo">
-        <h1> <img class="titulo__imagen" src="img/Logotipo.png" alt="Nintendo"> Castech </h1>
+        <h1> 
+            <img class="titulo__imagen" src="img/Logotipo.png" alt="Nintendo"> Castech 
+            <div class=" nav-bg_1">
+                <nav class="navegacion-principal_1 contenedor">
+                    <a  href="Inicio_Sesion.html">Iniciar Sesión</a>
+                    <a  href="Carrito.html"><img src="img/Carrito.png" alt="Nintendo"></a>
+                </nav>
+            </div> 
+         </h1>
     </header>
 
     <div class=" nav-bg">
@@ -30,7 +38,7 @@
     
     <br>
 
-    <main class= "contenedor sombra">
+    <main class= "contenedor sombra" >
         <h1><center>Base de Enfilamiento para Xbox Series X</h1>
 
             <div class="pag_productos">
@@ -51,8 +59,8 @@
                         más estable y no desliza la almohadilla antideslizante.</p>
                     
     
-                    <form class="formulario_producto">
-                        <p class="formulario_producto__precio">$825</p>
+                    <form class="formulario_producto" action="Carrito.php" method="get">
+                        <p class="formulario_producto__precio" name="precio">$825</p>
     
                         <input class="formulario_producto__campo" type="number" placeholder="Cantidad" min="1">
                         <input class="formulario_producto__submit" type="submit" value="Comprar ahora"> 

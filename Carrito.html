@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Castech</title>
+    <link rel="preload" href="Proyecto_CSS/normalize.css" as="normalize">
+    <link rel="stylesheet" href="Proyecto_CSS/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="Estilo.css">
+    <link href="img/Logotipo.png" rel="shortcut icon">
+</head>
+<body>
+
+  <header class = "titulo">
+    <h1> 
+        <img class="titulo__imagen" src="img/Logotipo.png" alt="Nintendo"> Castech 
+        <div class=" nav-bg_1">
+            <nav class="navegacion-principal_1 contenedor">
+                <a  href="Inicio_Sesion.html">Iniciar Sesión</a>
+                <a  href="Carrito.html"><img src="img/Carrito.png" alt="Nintendo"></a>
+            </nav>
+        </div> 
+     </h1>
+</header>
+
+    <div class=" nav-bg">
+        <nav class="navegacion-principal contenedor">
+            <a href="index.html">Inicio</a>
+            <a href="Consolas.html">Consolas</a>
+            <a href="Videojuegos.html">Videojuegos</a>
+            <a href="Accesorios.html">Accesorios</a>
+            <a href="Nosotros.html">Nosotros</a>
+            <a href="Contacto.html">Contacto</a>
+        </nav>
+    </div>
+
+    <main class= "contenedor sombra">
+        <h1> <center>Carrito de compras </h1>
+        <br><br>
+        <div class="formulario_carrito" method="get">
+            
+            <div class="campo_Carrito">
+                <label>Producto</label>
+            </div>
+            
+            <div class="campo_Carrito">
+                <label>Precio</label>
+            </div>
+
+            <div class="campo_Carrito">
+                <label>Cantidad</label>
+            </div>
+
+            <div class="campo_Carrito">
+                <label>Total</label>
+            </div>
+
+           
+            
+    
+        </div>
+        &nbsp;
+        
+        
+        <div id="smart-button-container">
+            <div style="text-align: center;">
+              <div id="paypal-button-container"></div>
+            </div>
+          </div>
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=MXN" data-sdk-integration-source="button-factory"></script>
+        <script>
+          function initPayPalButton() {
+            paypal.Buttons({
+              style: {
+                shape: 'rect',
+                color: 'gold',
+                layout: 'vertical',
+                label: 'paypal',
+                
+              },
+      
+              createOrder: function(data, actions) {
+                return actions.order.create({
+                  purchase_units: [{"amount":{"currency_code":"MXN","value":1}}]
+                });
+              },
+      
+              onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                  
+                  // Full available details
+                  console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+      
+                  // Show a success message within this page, e.g.
+                  const element = document.getElementById('paypal-button-container');
+                  element.innerHTML = '';
+                  element.innerHTML = '<h3>Thank you for your payment!</h3>';
+      
+                  // Or go to another URL:  actions.redirect('thank_you.html');
+                  
+                });
+              },
+      
+              onError: function(err) {
+                console.log(err);
+              }
+            }).render('#paypal-button-container');
+          }
+          initPayPalButton();
+        </script>
+    </main>
+
+
+        <footer class="footer">
+        <p>Todos los derechos reservados. Castech </p>
+        <p>Juan Ricardo Castañeda Avalos </p>
+        <p>Frida Paola Palacios Gómez </p>
+    </footer>
+
+
+
+
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <script src="./tienda.js"></script>
+
+</body>
+
+</html>
